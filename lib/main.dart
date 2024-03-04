@@ -62,7 +62,7 @@ class LandingPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 10,
+              height: 8,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

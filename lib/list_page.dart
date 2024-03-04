@@ -9,6 +9,38 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+  List listofItems = [1, 2];
+
   @override
-  Widget build(BuildContext context) => Scaffold();
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.grey[300],
+        appBar: AppBar(
+          title: Text(
+            "Task Board",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+        ),
+        body: ListView.builder(
+            itemCount: listofItems.length,
+            itemBuilder: (context, index) => Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 2.5),
+                  child: Card(
+                    elevation: 5,
+                    color: Colors.blue[50],
+                    child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Task ${listofItems[index].toString()}",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold)),
+                          ],
+                        )),
+                  ),
+                )),
+      );
 }
