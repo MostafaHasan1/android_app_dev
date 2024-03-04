@@ -10,6 +10,7 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
   List listofItems = [1, 2];
+  var currentDateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -33,14 +34,33 @@ class _ListPageState extends State<ListPage> {
                         padding:
                             EdgeInsets.symmetric(horizontal: 50, vertical: 40),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          // mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Text("Task ${listofItems[index].toString()}",
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.bold)),
+                            Text(
+                              "Your Personal task management and planning solution for plannign your day, week & months",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            Text(
+                              "${currentDateTime}",
+                              style: TextStyle(fontSize: 15),
+                            )
                           ],
                         )),
                   ),
                 )),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              listofItems.add(listofItems.length + 1);
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.add),
+          ),
+        ),
       );
 }
